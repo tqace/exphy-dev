@@ -85,7 +85,7 @@ def main(config):
                 for mbatch in val_loader:
                     x = mbatch.to('cuda:0')
                     ret = model.forward(x)
-                    val_mse += ret['mse'].cpu().item()
+                    val_mse += ret['mse'].mean().cpu().item()
                 val_mse = val_mse / len(val_loader.dataset)
                 wandb.log({"val_mse": val_mse})
                 wandb.log({"input_image": wandb.Image(mbatch[0])})
