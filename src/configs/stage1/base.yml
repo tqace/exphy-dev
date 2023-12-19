@@ -1,0 +1,34 @@
+exp:
+  stage: 1
+  name: base
+
+dataset:
+  name: comphyImg
+  data_root: data/comphy
+
+model:
+  name: ExphyS1Base
+  T: 5
+  K: 6
+  a_dim: 12
+  resolution: 
+    - 64
+    - 96
+  use_feature_extractor: True
+  beta: 100.
+
+training:
+  parallel: True
+  batch_size: 128
+  val_batch_size: 16
+  num_workers: 8
+  epochs: 150
+  save_interval: 1
+  val_interval: 1
+  save_path: './'
+  pretrained_path: ''
+
+optimizer:
+  lr: 0.0001
+  regularization: 0
+
