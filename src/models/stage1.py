@@ -192,7 +192,7 @@ class IODINE(torch.nn.Module):
         def save(self,save_path,epoch=None):
                 print('Saving model at epoch {}'.format(epoch))
                 suffix = 'epoch_{}.th'.format(epoch)
-                model_save_path = save_path + suffix
+                model_save_path = os.path.join(save_path, suffix)
                 torch.save(self.state_dict(),model_save_path)
 
         """
